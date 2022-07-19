@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="denemeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hayvanlar">
+          <Key>
+            <PropertyRef Name="HayvanID" />
+          </Key>
+          <Property Name="HayvanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HayvanTürü" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanCinsi" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanCinsiyeti" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanYaşı" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanSağlık" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanBeslenme" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanAşı" Type="nchar" MaxLength="10" />
+          <Property Name="HayvanAdres" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAd" Type="nchar" MaxLength="20" />
+          <Property Name="KullaniciSoyad" Type="nchar" MaxLength="20" />
+          <Property Name="KullaniciMeslek" Type="nchar" MaxLength="20" />
+          <Property Name="KullaniciSifre" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Yöneticiler">
+          <Key>
+            <PropertyRef Name="YöneticiID" />
+          </Key>
+          <Property Name="YöneticiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YöneticiAd" Type="nchar" MaxLength="10" />
+          <Property Name="YöneticiSoyad" Type="nchar" MaxLength="10" />
+          <Property Name="YöneticiBölüm" Type="nchar" MaxLength="10" />
+          <Property Name="YöneticiSifre" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="denemeModelStoreContainer">
+          <EntitySet Name="Hayvanlar" EntityType="Self.Hayvanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yöneticiler" EntityType="Self.Yöneticiler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="denemeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciSoyad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciMeslek" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="denemeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="Yöneticiler" EntityType="denemeModel.Yöneticiler" />
+          <EntitySet Name="Hayvanlar" EntityType="denemeModel.Hayvanlar" />
+        </EntityContainer>
+        <EntityType Name="Yöneticiler">
+          <Key>
+            <PropertyRef Name="YöneticiID" />
+          </Key>
+          <Property Name="YöneticiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YöneticiAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YöneticiSoyad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YöneticiBölüm" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YöneticiSifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hayvanlar">
+          <Key>
+            <PropertyRef Name="HayvanID" />
+          </Key>
+          <Property Name="HayvanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HayvanTürü" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanCinsi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanCinsiyeti" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanYaşı" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanSağlık" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanBeslenme" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanAşı" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HayvanAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="denemeModelStoreContainer" CdmEntityContainer="denemeEntities">
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="denemeModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+                <ScalarProperty Name="KullaniciMeslek" ColumnName="KullaniciMeslek" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yöneticiler">
+            <EntityTypeMapping TypeName="denemeModel.Yöneticiler">
+              <MappingFragment StoreEntitySet="Yöneticiler">
+                <ScalarProperty Name="YöneticiSifre" ColumnName="YöneticiSifre" />
+                <ScalarProperty Name="YöneticiBölüm" ColumnName="YöneticiBölüm" />
+                <ScalarProperty Name="YöneticiSoyad" ColumnName="YöneticiSoyad" />
+                <ScalarProperty Name="YöneticiAd" ColumnName="YöneticiAd" />
+                <ScalarProperty Name="YöneticiID" ColumnName="YöneticiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hayvanlar">
+            <EntityTypeMapping TypeName="denemeModel.Hayvanlar">
+              <MappingFragment StoreEntitySet="Hayvanlar">
+                <ScalarProperty Name="HayvanAdres" ColumnName="HayvanAdres" />
+                <ScalarProperty Name="HayvanAşı" ColumnName="HayvanAşı" />
+                <ScalarProperty Name="HayvanBeslenme" ColumnName="HayvanBeslenme" />
+                <ScalarProperty Name="HayvanSağlık" ColumnName="HayvanSağlık" />
+                <ScalarProperty Name="HayvanYaşı" ColumnName="HayvanYaşı" />
+                <ScalarProperty Name="HayvanCinsiyeti" ColumnName="HayvanCinsiyeti" />
+                <ScalarProperty Name="HayvanCinsi" ColumnName="HayvanCinsi" />
+                <ScalarProperty Name="HayvanTürü" ColumnName="HayvanTürü" />
+                <ScalarProperty Name="HayvanID" ColumnName="HayvanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
